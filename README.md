@@ -9,7 +9,7 @@ My original thought was to approach this like so:
 - Create Redux store
 - Create data binding, probably with thunks.
 
-I ended approaching it this way:
+I ended up approaching it this way:
 - Clean up CRA scaffold
 - Add a basic design with components
 - Experiment with API, create non-Redux version
