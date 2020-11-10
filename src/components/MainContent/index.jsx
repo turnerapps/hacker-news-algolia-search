@@ -1,8 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import ResultList from '../ResultList';
-import Article from '../Article';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -15,20 +14,13 @@ const useStyles = makeStyles((theme) => ({
     appBarSpacer: theme.mixins.toolbar
 }));
 
-export const MainContent = (props) => {
+export const MainContent = ({results}) => {
     const classes = useStyles();
 
     return (
         <>
             <div className={classes.appBarSpacer} />
-            <Grid container direction="row">
-                <Grid container direction="column" md={3}>
-                    <ResultList />
-                </Grid>
-                <Grid container direction="column" md={9}>
-                    <Article title="Article Title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eaque veritatis beatae voluptatibus nesciunt. Iste deserunt voluptatibus expedita, tempora accusantium veniam dicta nulla modi, in voluptatum, natus alias. Esse, ducimus.</Article>
-                </Grid>
-            </Grid>
+            <Container><ResultList results={results}/></Container>
         </>
     );
 };

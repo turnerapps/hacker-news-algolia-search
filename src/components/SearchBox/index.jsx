@@ -2,6 +2,7 @@ import React from 'react';
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
+import _ from 'lodash';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -67,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const SearchBox = () => {
+export const SearchBox = ({handleChange}) => {
     const classes = useStyles();
     return (
         <div className={classes.search}>
@@ -81,6 +82,7 @@ export const SearchBox = () => {
                     input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
+                onChange={_.debounce((e)=>{handleChange(e.target.value)},250)}
             />
         </div>
     );
