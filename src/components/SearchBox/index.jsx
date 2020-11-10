@@ -3,6 +3,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import _ from 'lodash';
+import {connect} from 'react-redux';
+import {setSearchTerm} from '../../store/actions';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -68,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export const SearchBox = ({handleChange}) => {
+const _SearchBox = ({handleChange}) => {
     const classes = useStyles();
     return (
         <div className={classes.search}>
@@ -82,10 +84,17 @@ export const SearchBox = ({handleChange}) => {
                     input: classes.inputInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
-                onChange={_.debounce((e)=>{handleChange(e.target.value)},250)}
+                onChange={_.debounce((e)=>{handleChange(e.target.value)},400)}
             />
         </div>
     );
 };
+
+const mapStateToProps = (state) => ({searchTerm: state.searchTerm});
+const mapDispatchToProps = (dispatch) => ({
+    handleChange: (searchTerm) => { dispatch(setSearchTerm(searchTerm)) }
+});
+
+const SearchBox = connect(mapStateToProps,mapDispatchToProps)(_SearchBox);
 
 export default SearchBox;

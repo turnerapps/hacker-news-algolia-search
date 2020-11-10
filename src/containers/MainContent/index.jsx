@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import ResultList from '../ResultList';
+import ResultList from '../../components/ResultList';
+import HistoryChips from '../HistoryChips';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -14,15 +15,17 @@ const useStyles = makeStyles((theme) => ({
     appBarSpacer: theme.mixins.toolbar
 }));
 
-export const MainContent = ({results}) => {
+export const MainContent = ({history,setHistory}) => {
     const classes = useStyles();
 
     return (
         <>
             <div className={classes.appBarSpacer} />
-            <Container><ResultList results={results}/></Container>
+            <Container><HistoryChips /></Container>
+            <Container><ResultList/></Container>
         </>
     );
 };
+
 
 export default MainContent;
