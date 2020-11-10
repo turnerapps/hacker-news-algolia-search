@@ -2,12 +2,18 @@
 
 This code exercise was given to me to demonstrate my ability to use React and Redux to access an API. It was stated that in this case, UI design is not important; code cleanliness and clarity instead are paramount.
 
-My approach to this will be:
+My original thought was to approach this like so:
 - Clean up the scaffold
 - Add a basic design
 - Create components
 - Create Redux store
 - Create data binding, probably with thunks.
+
+I ended approaching it this way:
+- Clean up CRA scaffold
+- Add a basic design with components
+- Experiment with API, create non-Redux version
+- Create Redux store, improve functionality
 
 The text of the exercise: 
 
