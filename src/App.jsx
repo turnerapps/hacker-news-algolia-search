@@ -1,23 +1,37 @@
 import React from 'react';
 
-function App() {
+import AppBar from '@material-ui/core/AppBar';
+import ToolBar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import SearchBox from './components/SearchBox';
+import MainContent from './components/MainContent';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    title: {
+        flexGrow: 1,
+    },
+}));
+
+const App = () => {
+    const classes = useStyles();
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-        </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-        </a>
-            </header>
-        </div>
+        <>
+            <AppBar position="static">
+                <ToolBar>
+                    <Typography variant="h6" className={classes.title}>Hacker News Search</Typography>
+                    <SearchBox />
+                </ToolBar>
+            </AppBar>
+            <MainContent />
+        </>
     );
-}
+};
 
 export default App;
